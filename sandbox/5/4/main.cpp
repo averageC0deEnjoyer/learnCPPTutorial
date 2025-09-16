@@ -1,13 +1,8 @@
 #include <iostream>
 
-int func()
-{
-  std::cout << "test";
-  return 1;
-}
-
 int main()
 {
+  const double gravity{};
   std::cout << sizeof(int) << '\n';
   return 0;
 }
