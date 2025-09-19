@@ -55,14 +55,15 @@ std::bitset<4> rotl(std::bitset<4> bits)
 std::bitset<4> rotl2(std::bitset<4> bits)
 {
   // check the leftmost bit
-  bool isLeftMost{bits & 0b1000};
+  std::bitset<4> isLeftMost{bits & static_cast<std::bitset<4>>(0b1000)};
+  bool isLeftMostBit{isLeftMost.any()};
   // shift left
   bits <<= 1;
 
-  if (isLeftMost)
+  if (isLeftMostBit)
     bits |= 0b0001;
 
-  return bits
+  return bits;
 }
 
 int main()
