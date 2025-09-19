@@ -51,13 +51,29 @@ std::bitset<4> rotl(std::bitset<4> bits)
   return bits;
 }
 
+// QUESTION 3
+std::bitset<4> rotl2(std::bitset<4> bits)
+{
+  // check the leftmost bit
+  bool isLeftMost{bits & 0b1000};
+  // shift left
+  bits <<= 1;
+
+  if (isLeftMost)
+    bits |= 0b0001;
+
+  return bits
+}
+
 int main()
 {
   std::bitset<4> bits1{0b0001};
   std::cout << rotl(bits1) << '\n';
+  std::cout << rotl2(bits1) << '\n';
 
   std::bitset<4> bits2{0b1001};
   std::cout << rotl(bits2) << '\n';
+  std::cout << rotl2(bits2) << '\n';
 
   return 0;
 }
