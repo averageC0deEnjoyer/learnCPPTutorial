@@ -6,10 +6,8 @@
 
 namespace Random
 {
-
 inline std::mt19937 generate()
 {
-
   std::random_device rd{};
 
   std::seed_seq ss{
@@ -22,7 +20,21 @@ inline std::mt19937 generate()
       rd(),
       rd(),
       rd()};
+
+  return std::mt19937{ss};
 }
+
+inline std::mt19937 mt{generate()};
+
+inline int get(int min, int max)
+{
+  return std::uniform_int_distribution{min, max}(mt);
+}
+
+template <typename T> T get(T min, T max)
+{
+}
+return std::uniform_int_distribution<T>{min, max}(mt);
 
 } // namespace Random
 
